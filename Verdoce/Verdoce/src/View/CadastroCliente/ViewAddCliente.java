@@ -410,14 +410,14 @@ public class ViewAddCliente extends javax.swing.JFrame {
                     txtNome.getText(),
                     txtSobrenome.getText(),
                     (String) comboSexo.getSelectedItem(),
-                    Check.ValidaNumero(txtCpf),
+                    Check.ValidaNumeroStr(txtCpf),
                     Integer.valueOf((Integer) comboDia.getSelectedItem()),
                     Integer.valueOf((String) comboMes.getSelectedItem()),
                     Integer.valueOf((Integer) comboAno.getSelectedItem()),
                     txtEndereco.getText(),
-                    Integer.parseInt(Check.ValidaNumero(txtResi)),
-                    Integer.parseInt(Check.ValidaNumero(txtTelFixo)),
-                    Integer.parseInt(Check.ValidaNumero(txtTelCelular)),
+                    Check.ValidaNumeroInt(txtResi),
+                    Check.ValidaNumeroInt(txtTelFixo),
+                    Check.ValidaNumeroInt(txtTelCelular),
                     txtEmail.getText()
             );
             DAO.DaoVerdoce.gravarCliente();

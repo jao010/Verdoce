@@ -255,4 +255,31 @@ public class Check {
         }else throw new IllegalArgumentException("Valor Invalído.");
     }
     
+    public static int ValidaNumeroInt(JTextField Numero) {
+        int valor;
+        if (Numero.getText().length() != 0) {
+            try {
+                valor = Integer.parseInt(Numero.getText());
+                return valor;
+            } catch (NumberFormatException ex) {
+                Numero.grabFocus();
+                throw new IllegalArgumentException("Esse Campo só aceita números");
+            }
+        }else throw new IllegalArgumentException("Valor Invalído.");
+    }
+    
+    public static String ValidaNumeroStr(JTextField numero) {
+        long valor;
+        if (numero.getText().length() != 0) {
+            try {
+                valor = Long.parseLong(numero.getText());
+                return numero.getText();
+            } catch (NumberFormatException ex) {
+                numero.grabFocus();
+                throw new IllegalArgumentException("Esse Campo só aceita números");
+            }
+        }else throw new IllegalArgumentException("Valor Invalído.");
+    }
+    
+    
 }
