@@ -8,7 +8,6 @@ package DAO;
 import Model.ModelCliente;
 import Model.ModelNota;
 import Model.ModelProduto;
-import Model.ModelVerdoce;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -33,19 +32,23 @@ public class DaoVerdoce {
     private static final String urlNotas = "src\\Dados\\Notas.json";
     private static final String urlProdutos = "src\\Dados\\Produtos.json";
     private static final String urlClientes = "src\\Dados\\Clientes.json";
+  
 
-    public static void gravar() {
+    public static void gravarNotas() {
         JSONArray ja = new JSONArray();
         int cont = 1;
 
         for (ModelNota a : ModelNota.getListaNota()) {
-            
+
             JSONObject jb = new JSONObject();
             jb.put("Cliente: ", a.getCliente());
 
             ArrayList<String> aux = new ArrayList<String>();
 
             jb.put("Produto: ", a.getProduto());
+            jb.put("Preço: ", a.getPreco());
+            jb.put("CPF: ", a.getCPF());
+            jb.put("NF: ", a.getNF());
             jb.put("Unidade: ", a.getUni());
             jb.put("Sabor: ", a.getSabor());
             jb.put("qtd: ", a.getQtd());
@@ -63,7 +66,7 @@ public class DaoVerdoce {
         }
     }
 
-    public static void carregar() {
+    public static void carregarNotas() {
         File arq = new File(urlNotas);
         boolean arqOk = (arq.exists() && arq.canRead());
         if (arqOk) {
@@ -73,12 +76,28 @@ public class DaoVerdoce {
 
                 for (Object o : jArray) {
                     JSONObject a = (JSONObject) o;
+                    String cliente;
+                    if (a.get("Cliente: ") != null) {
+                        cliente = a.get("Cliente: ").toString();
+                    } else {
+                        cliente = null;
+                    }
 
-                    String cliente = a.get("Cliente: ").toString();
+                    ArrayList<Double> preco = new ArrayList<Double>();
+                    preco = (ArrayList<Double>) a.get("Preço: ");
+
+                    String CPF;
+                    if (a.get("CPF: ") != null) {
+                        CPF = a.get("CPF: ").toString();
+                    } else {
+                        CPF = null;
+                    }
+
+                    String NF = a.get("NF: ").toString();
 
                     ArrayList<String> produto = new ArrayList<String>();
                     produto = (ArrayList<String>) a.get("Produto: ");
-                    
+
                     ArrayList<String> uni = new ArrayList<String>();
                     uni = (ArrayList<String>) a.get("Unidade: ");
 
@@ -89,8 +108,11 @@ public class DaoVerdoce {
                     qtd = (ArrayList<Integer>) a.get("qtd: ");
 
                     String total = a.get("Total: ").toString();
-
-                    new ModelNota(cliente, produto, uni, qtd, sabor, Double.parseDouble(total));
+                    if (cliente != null) {
+                        new ModelNota(cliente, preco, CPF, produto, uni, qtd, sabor, Double.parseDouble(total), NF);
+                    } else {
+                        new ModelNota(preco, produto, uni, qtd, sabor, Double.parseDouble(total), NF);
+                    }
                 }
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, ex);
@@ -104,7 +126,7 @@ public class DaoVerdoce {
     public static void gravarProduto() {
         JSONArray ja = new JSONArray();
 
-        for (ModelProduto a : ModelProduto.lista) {
+        for (ModelProduto a : ModelProduto.getLista()) {
             JSONObject o = new JSONObject();
             o.put("Nome: ", a.getNome());
             o.put("Preço: ", a.getPreco());
@@ -167,12 +189,12 @@ public class DaoVerdoce {
             o.put("TelFixo: ", a.getTelFixo());
             o.put("TelCell: ", a.getTelCelular());
             o.put("Email: ", a.getEmail());
-            o.put("TipoPessoa: ", a.getPJF());
             o.put("DataNascimento: ", a.getDateNascimento());
             ja.add(o);
         }
 
         try {
+            
             FileWriter arq = new FileWriter(urlClientes);
             arq.write(ja.toString());
             arq.close();
@@ -206,7 +228,6 @@ public class DaoVerdoce {
                     int telFixo = Integer.parseInt(a.get("TelFixo: ").toString());
                     int telCelular = Integer.parseInt(a.get("TelCell: ").toString());
                     String email = a.get("Email: ").toString();
-                    String PJF = a.get("TipoPessoa: ").toString();
 
                     new ModelCliente(
                             nome,
@@ -220,8 +241,7 @@ public class DaoVerdoce {
                             NumeroResi,
                             telFixo,
                             telCelular,
-                            email,
-                            PJF
+                            email
                     );
                 }
             } catch (IOException | ParseException ex) {
@@ -230,5 +250,4 @@ public class DaoVerdoce {
         }
 
     }
-
 }

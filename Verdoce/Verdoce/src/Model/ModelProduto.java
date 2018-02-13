@@ -20,7 +20,7 @@ public class ModelProduto {
     private ArrayList<String> saboTipo = new ArrayList<String>();
     private boolean ok = true;
     
-    public static ArrayList<ModelProduto> lista = new ArrayList<ModelProduto>();
+    private static ArrayList<ModelProduto> lista = new ArrayList<ModelProduto>();
     
     public ModelProduto(String nome, double preco, String unMedida){
         setNome(nome);
@@ -97,6 +97,14 @@ public class ModelProduto {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+    }
+    
+    public static ArrayList<ModelProduto> getLista() {
+        return lista;
+    }
+
+    public static void setLista(ArrayList<ModelProduto> lista) {
+        ModelProduto.lista = lista;
     }
     
     

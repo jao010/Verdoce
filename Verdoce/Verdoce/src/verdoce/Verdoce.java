@@ -19,7 +19,7 @@ public class Verdoce {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        DaoVerdoce.carregar();
+        DaoVerdoce.carregarNotas();
         DaoVerdoce.carregarProduto();
         DaoVerdoce.carregarCliente();
         ViewIndex vi = new ViewIndex();

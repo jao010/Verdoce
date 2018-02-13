@@ -31,6 +31,9 @@ public class PainelSim extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(85, 193, 180));
+
+        jComboBox1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -38,9 +41,11 @@ public class PainelSim extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Charlemagne Std", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CPF: ");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("****");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

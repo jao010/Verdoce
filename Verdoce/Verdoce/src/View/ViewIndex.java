@@ -5,6 +5,12 @@
  */
 package View;
 
+import View.CadastroCliente.ViewAddCliente;
+import View.VenderProduto.ViewPerguntaCliente;
+import View.ResumoVendas.ViewMostrarDados;
+import View.Gerenciamento.ViewEditarProduto;
+import View.Gerenciamento.ViewAddProduto;
+import View.Gerenciamento.ViewRemoveProduto;
 import DAO.DaoVerdoce;
 
 /**
@@ -35,59 +41,55 @@ public class ViewIndex extends javax.swing.JFrame {
         btnVender = new javax.swing.JButton();
         btnCompraVenda = new javax.swing.JButton();
         btnVender1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuGere = new javax.swing.JMenu();
-        paletaAddProduto = new javax.swing.JMenuItem();
-        paletaRemoveProduto = new javax.swing.JMenuItem();
-        paletaEditarProduto = new javax.swing.JMenuItem();
+        menuRemoveP = new javax.swing.JMenu();
+        menuAddP = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        menuEditarP = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Menu");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Charlemagne Std", 1, 36)); // NOI18N
-        jLabel1.setText("Verdoce");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/4.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(jLabel1)
-                .addContainerGap(216, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
+        jPanel2.setBackground(new java.awt.Color(85, 193, 180));
 
-        btnVender.setFont(new java.awt.Font("Charlemagne Std", 0, 14)); // NOI18N
+        btnVender.setBackground(new java.awt.Color(255, 255, 255));
+        btnVender.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnVender.setText("Vender produto");
+        btnVender.setBorderPainted(false);
         btnVender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVenderActionPerformed(evt);
             }
         });
 
-        btnCompraVenda.setFont(new java.awt.Font("Charlemagne Std", 0, 14)); // NOI18N
-        btnCompraVenda.setText("Compras/Vendas");
+        btnCompraVenda.setBackground(new java.awt.Color(255, 255, 255));
+        btnCompraVenda.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnCompraVenda.setText("Resumo de vendas");
+        btnCompraVenda.setBorderPainted(false);
         btnCompraVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompraVendaActionPerformed(evt);
             }
         });
 
-        btnVender1.setFont(new java.awt.Font("Charlemagne Std", 0, 14)); // NOI18N
+        btnVender1.setBackground(new java.awt.Color(255, 255, 255));
+        btnVender1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnVender1.setText("Cadastrar cliente");
+        btnVender1.setBorderPainted(false);
         btnVender1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVender1ActionPerformed(evt);
@@ -99,50 +101,90 @@ public class ViewIndex extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(204, 204, 204)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVender1)
-                    .addComponent(btnCompraVenda)
-                    .addComponent(btnVender))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnVender1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnVender, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(btnCompraVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)))))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(btnVender1)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(btnVender)
                 .addGap(30, 30, 30)
                 .addComponent(btnCompraVenda)
-                .addGap(76, 76, 76))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        btnVender.getAccessibleContext().setAccessibleName("");
+        btnCompraVenda.getAccessibleContext().setAccessibleName("");
+        btnVender1.getAccessibleContext().setAccessibleName("");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         menuGere.setText("Gerenciamento");
 
-        paletaAddProduto.setText("Adicionar produto");
-        paletaAddProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paletaAddProdutoActionPerformed(evt);
-            }
-        });
-        menuGere.add(paletaAddProduto);
+        menuRemoveP.setText("Produto");
 
-        paletaRemoveProduto.setText("Remover produto");
-        paletaRemoveProduto.addActionListener(new java.awt.event.ActionListener() {
+        menuAddP.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_MASK));
+        menuAddP.setText("Adicionar produto");
+        menuAddP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paletaRemoveProdutoActionPerformed(evt);
+                menuAddPActionPerformed(evt);
             }
         });
-        menuGere.add(paletaRemoveProduto);
+        menuRemoveP.add(menuAddP);
 
-        paletaEditarProduto.setText("Editar produto");
-        paletaEditarProduto.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Remover produto");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paletaEditarProdutoActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        menuGere.add(paletaEditarProduto);
+        menuRemoveP.add(jMenuItem2);
+
+        menuEditarP.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_MASK));
+        menuEditarP.setText("Editar produto");
+        menuEditarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditarPActionPerformed(evt);
+            }
+        });
+        menuRemoveP.add(menuEditarP);
+
+        menuGere.add(menuRemoveP);
 
         jMenuBar1.add(menuGere);
 
@@ -152,33 +194,25 @@ public class ViewIndex extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        //DaoVerdoce.carregar();
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        ViewPerguntaCliente vp = new ViewPerguntaCliente();
-        vp.setVisible(true);
-        vp.setLocationRelativeTo(null);
+        ViewPerguntaCliente vv = new ViewPerguntaCliente();
+        vv.setVisible(true);
+        vv.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnVenderActionPerformed
 
@@ -190,22 +224,6 @@ public class ViewIndex extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCompraVendaActionPerformed
 
-    private void paletaRemoveProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paletaRemoveProdutoActionPerformed
-        // TODO add your handling code here:
-        ViewRemoveProduto mr = new ViewRemoveProduto();
-        mr.setVisible(true);
-        mr.setLocationRelativeTo(null);
-        this.dispose();
-    }//GEN-LAST:event_paletaRemoveProdutoActionPerformed
-
-    private void paletaAddProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paletaAddProdutoActionPerformed
-        // TODO add your handling code here:
-        ViewAddProduto vp = new ViewAddProduto();
-        vp.setVisible(true);
-        vp.setLocationRelativeTo(null);
-        this.dispose();
-    }//GEN-LAST:event_paletaAddProdutoActionPerformed
-
     private void btnVender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVender1ActionPerformed
         // TODO add your handling code here:
         ViewAddCliente vc = new ViewAddCliente();
@@ -214,13 +232,33 @@ public class ViewIndex extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVender1ActionPerformed
 
-    private void paletaEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paletaEditarProdutoActionPerformed
+    private void menuEditarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarPActionPerformed
         // TODO add your handling code here:
-        ViewEditarProduto ve = new ViewEditarProduto();
-        ve.setVisible(true);
-        ve.setLocationRelativeTo(null);
-        dispose();
-    }//GEN-LAST:event_paletaEditarProdutoActionPerformed
+        ViewLogin.escolha = menuEditarP.getText();
+        ViewLogin vl = new ViewLogin();
+        vl.setVisible(true);
+        vl.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_menuEditarPActionPerformed
+    
+    
+    private void menuAddPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAddPActionPerformed
+        // TODO add your handling code here:
+        ViewLogin.escolha = menuAddP.getText();
+        ViewLogin vl = new ViewLogin();
+        vl.setVisible(true);
+        vl.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_menuAddPActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        ViewLogin.escolha = menuRemoveP.getText();
+        ViewLogin vl = new ViewLogin();
+        vl.setVisible(true);
+        vl.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,12 +300,14 @@ public class ViewIndex extends javax.swing.JFrame {
     private javax.swing.JButton btnVender;
     private javax.swing.JButton btnVender1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenuItem menuAddP;
+    private javax.swing.JMenuItem menuEditarP;
     private javax.swing.JMenu menuGere;
-    private javax.swing.JMenuItem paletaAddProduto;
-    private javax.swing.JMenuItem paletaEditarProduto;
-    private javax.swing.JMenuItem paletaRemoveProduto;
+    private javax.swing.JMenu menuRemoveP;
     // End of variables declaration//GEN-END:variables
 }

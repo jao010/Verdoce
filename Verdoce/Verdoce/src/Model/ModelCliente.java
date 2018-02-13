@@ -25,7 +25,6 @@ public class ModelCliente {
     private int telFixo;
     private int telCelular;
     private String email;
-    private String PJF;
     private boolean ok = true;
     private ArrayList<ModelNota> listaNota = new ArrayList<ModelNota>();
     
@@ -43,8 +42,7 @@ public class ModelCliente {
             int NumeroResi, 
             int telFixo, 
             int telCelular,
-            String email,
-            String PJF) {
+            String email) {
         
         this.setNomePessoa(nome);
         this.setSobrenomePessoa(sobreNome);
@@ -58,7 +56,6 @@ public class ModelCliente {
         this.setTelFixo(telFixo);
         this.setTelCelular(telCelular);
         this.setEmail(email);
-        this.setPJF(PJF);
         this.setDateNascimento();
         
         if(ok){
@@ -202,14 +199,6 @@ public class ModelCliente {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }
-
-    public String getPJF() {
-        return PJF;
-    }
-
-    public void setPJF(String PJF) {
-        this.PJF = PJF;
     }
     
     public static ArrayList<ModelCliente> getListaClilente(){
